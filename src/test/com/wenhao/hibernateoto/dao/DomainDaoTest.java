@@ -26,15 +26,15 @@ public class DomainDaoTest {
         transaction.begin();
         QQ qq = new QQ();
         qq.setQqNumber("100000");
-        session.save(qq);
         QQZone qqZone = new QQZone();
         qqZone.setName("wenhao");
+        session.save(qq);
+        qq.setZone(qqZone);
         qqZone.setQq(qq);
         session.save(qqZone);
         transaction.commit();
         session.close();
     }
-
 
 
 }

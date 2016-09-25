@@ -5,15 +5,9 @@ import javax.persistence.*;
 /**
  * Created by lenovo on 2016/09/25.
  */
-@Entity
 public class QQZone {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column
     private String name;
-    @OneToOne
-    @JoinColumn(name = "qq_id")
     private QQ qq;
 
     public Long getId() {

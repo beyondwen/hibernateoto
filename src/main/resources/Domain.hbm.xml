@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wenhao.hibernateoto.domain">
+
+    <class name="QQ">
+        <id name="id">
+            <generator class="native" />
+        </id>
+        <property name="qqNumber" />
+        <!-- //一对一 -->
+        <!-- private QQZone zone; -->
+        <one-to-one name="zone" />
+    </class>
+
+    <class name="QQZone">
+        <id name="id">
+            <!-- 外键生成方式:QQZone.id来自于QQ.id -->
+            <generator class="foreign">
+                <!-- qq属性引用下面<one-to-one name="qq" />的qq -->
+                <param name="property">qq</param>
+            </generator>
+        </id>
+        <property name="name" />
+        <!-- //一对一 -->
+        <!-- private QQ qq; -->
+        <one-to-one name="qq" constrained="true"/>
+    </class>
+</hibernate-mapping>

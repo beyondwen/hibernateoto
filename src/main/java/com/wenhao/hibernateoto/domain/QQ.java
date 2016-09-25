@@ -5,13 +5,18 @@ import javax.persistence.*;
 /**
  * Created by lenovo on 2016/09/25.
  */
-@Entity
 public class QQ {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column
     private String qqNumber;
+    private QQZone zone;
+
+    public QQZone getZone() {
+        return zone;
+    }
+
+    public void setZone(QQZone zone) {
+        this.zone = zone;
+    }
 
     public Long getId() {
         return id;
